@@ -192,7 +192,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         public void onClick(DialogInterface dialogInterface, int i) {
                             scoreJ1 = 0;
                             scoreJ2 = 0;
-                            nbManches =-1;
+                            nbManches = -1;
                             textStats.setText("");
                             reinit();
                         }
@@ -217,7 +217,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         public void onClick(DialogInterface dialogInterface, int i) {
                             scoreJ1 = 0;
                             scoreJ2 = 0;
-                            nbManches =-1;
+                            nbManches = -1;
                             textStats.setText("");
                             reinit();
                         }
