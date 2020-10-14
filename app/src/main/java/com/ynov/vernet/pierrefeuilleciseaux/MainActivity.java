@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -181,5 +180,56 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Mettre à jour le nombre de manche
         nbManches++;
         textNbManches.setText("Nombre de manches : " + nbManches);
+
+
+        // Si le J1 gagne 5 rounds
+        if (scoreJ1 >= 5) {
+            AlertDialog alertDialog = new AlertDialog.Builder(this)
+                    .setTitle("Victoire")
+                    .setMessage("Vous avez gagné ! \n Rejouer ?")
+                    .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            scoreJ1 = 0;
+                            scoreJ2 = 0;
+                            nbManches =-1;
+                            textStats.setText("");
+                            reinit();
+                        }
+                    })
+                    .setNegativeButton("Non", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            finish();
+                        }
+                    })
+                    .show();
+            alertDialog.setCanceledOnTouchOutside(false);
+        }
+
+        // Si le J2 gagne 5 rounds
+        if (scoreJ2 >= 5) {
+            AlertDialog alertDialog = new AlertDialog.Builder(this)
+                    .setTitle("Défaite")
+                    .setMessage("Vous avez perdu ! \n Rejouer ?")
+                    .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            scoreJ1 = 0;
+                            scoreJ2 = 0;
+                            nbManches =-1;
+                            textStats.setText("");
+                            reinit();
+                        }
+                    })
+                    .setNegativeButton("Non", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            finish();
+                        }
+                    })
+                    .show();
+            alertDialog.setCanceledOnTouchOutside(false);
+        }
     }
 }
