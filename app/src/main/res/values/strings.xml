@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Pierre Feuille Ciseaux</string>
+    <string name="pierre">Pierre</string>
+    <string name="feuille">Feuille</string>
+    <string name="ciseaux">Ciseaux</string>
 </resources>
