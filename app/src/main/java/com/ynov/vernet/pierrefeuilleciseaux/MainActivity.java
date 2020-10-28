@@ -1,5 +1,6 @@
 package com.ynov.vernet.pierrefeuilleciseaux;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
@@ -25,9 +26,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     // Booléen
     // 0 = pierre   1 = feuille     2 = ciseaux
-    private boolean[] choixJ1 = new boolean[3];
-    private boolean[] choixJ2 = new boolean[3];
-
+    private final boolean[] choixJ1 = new boolean[3];
+    private final boolean[] choixJ2 = new boolean[3];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     // Au clic d'un bouton
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -117,48 +118,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Si J1 choisit Pierre
         if (choixJ1[0] && choixJ2[1]) {
             scoreJ2++;
-            textStats.setText("Perdu ! \n L'ordi avait choisi Feuille");
+            textStats.setText(R.string.perdu_feuille);
             textStats.setTextColor(getResources().getColor(R.color.colorJ2));
         }
         if (choixJ1[0] && choixJ2[2]) {
             scoreJ1++;
-            textStats.setText("Gagné ! \n L'ordi avait choisi Ciseaux");
+            textStats.setText(R.string.gagne_ciseaux);
             textStats.setTextColor(getResources().getColor(R.color.colorJ1));
         }
         if (choixJ1[0] && choixJ2[0]) {
-            textStats.setText("Egalité !");
+            textStats.setText(R.string.egalite);
             textStats.setTextColor(getResources().getColor(R.color.colorEgalite));
         }
 
         // Si J1 choisit Feuille
         if (choixJ1[1] && choixJ2[2]) {
             scoreJ2++;
-            textStats.setText("Perdu ! \n L'ordi avait choisi Ciseaux");
+            textStats.setText(R.string.perdu_ciseaux);
             textStats.setTextColor(getResources().getColor(R.color.colorJ2));
         }
         if (choixJ1[1] && choixJ2[0]) {
             scoreJ1++;
-            textStats.setText("Gagné ! \n L'ordi avait choisi Pierre");
+            textStats.setText(R.string.gagne_pierre);
             textStats.setTextColor(getResources().getColor(R.color.colorJ1));
         }
         if (choixJ1[1] && choixJ2[1]) {
-            textStats.setText("Egalité !");
+            textStats.setText(R.string.egalite);
             textStats.setTextColor(getResources().getColor(R.color.colorEgalite));
         }
 
         // Si J1 choisit Ciseaux
         if (choixJ1[2] && choixJ2[0]) {
             scoreJ2++;
-            textStats.setText("Perdu ! \n L'ordi avait choisi Pierre");
+            textStats.setText(R.string.perdu_pierre);
             textStats.setTextColor(getResources().getColor(R.color.colorJ2));
         }
         if (choixJ1[2] && choixJ2[1]) {
             scoreJ1++;
-            textStats.setText("Gagné ! \n L'ordi avait choisi Feuille");
+            textStats.setText(R.string.gagne_feuille);
             textStats.setTextColor(getResources().getColor(R.color.colorJ1));
         }
         if (choixJ1[2] && choixJ2[2]) {
-            textStats.setText("Egalité !");
+            textStats.setText(R.string.egalite);
             textStats.setTextColor(getResources().getColor(R.color.colorEgalite));
         }
 
@@ -166,6 +167,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     // Recommencer un round
+    @SuppressLint("SetTextI18n")
     public void reinit() {
         // Mettre à jour les scores graphiquement
         textScoreJ1.setText("" + scoreJ1);
@@ -179,15 +181,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // Mettre à jour le nombre de manche
         nbManches++;
-        textNbManches.setText("Nombre de manches : " + nbManches);
+        textNbManches.setText(getString(R.string.nb_manches) + nbManches);
 
 
         // Si le J1 gagne 5 rounds
         if (scoreJ1 >= 5) {
             AlertDialog alertDialog = new AlertDialog.Builder(this)
-                    .setTitle("Victoire")
-                    .setMessage("Vous avez gagné ! \n Rejouer ?")
-                    .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                    .setTitle(R.string.victoire)
+                    .setMessage(R.string.vous_avez_gagne)
+                    .setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             scoreJ1 = 0;
@@ -197,7 +199,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             reinit();
                         }
                     })
-                    .setNegativeButton("Non", new DialogInterface.OnClickListener() {
+                    .setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             finish();
@@ -210,9 +212,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Si le J2 gagne 5 rounds
         if (scoreJ2 >= 5) {
             AlertDialog alertDialog = new AlertDialog.Builder(this)
-                    .setTitle("Défaite")
-                    .setMessage("Vous avez perdu ! \n Rejouer ?")
-                    .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                    .setTitle(R.string.defaite)
+                    .setMessage(R.string.vous_avez_perdu)
+                    .setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             scoreJ1 = 0;
@@ -222,7 +224,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             reinit();
                         }
                     })
-                    .setNegativeButton("Non", new DialogInterface.OnClickListener() {
+                    .setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             finish();
