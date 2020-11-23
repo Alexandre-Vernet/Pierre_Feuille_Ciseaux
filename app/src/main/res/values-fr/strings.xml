@@ -4,13 +4,13 @@
     <string name="pierre">Pierre</string>
     <string name="feuille">Feuille</string>
     <string name="ciseaux">Ciseaux</string>
-    <string name="nombre_de_manches_0">Nombre de rounds : 0 </string>
+    <string name="nombre_de_manches_0">"Nombre de manches : 0 "</string>
     <string name="egalite">Egalité !</string>
     <string name="perdu_ciseaux">Perdu !  \n L\'ordi avait choisi Ciseaux</string>
     <string name="gagne_pierre">Gagné !  \n L\'ordi avait choisi Pierre</string>
     <string name="perdu_pierre">Perdu !  \n L\'ordi avait choisi Pierre</string>
     <string name="gagne_feuille">Gagné ! \n L\'ordi avait choisi Feuille</string>
-    <string name="nb_manches">Nombre de manches : </string>
+    <string name="nb_manches">Nombre de manches : %1$d</string>
     <string name="victoire">Victoire</string>
     <string name="vous_avez_gagne">Vous avez gagné ! Rejouer ?</string>
     <string name="oui">Oui</string>

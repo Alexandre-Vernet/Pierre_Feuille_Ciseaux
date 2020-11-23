@@ -167,7 +167,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     // Recommencer un round
-    @SuppressLint("SetTextI18n")
     public void reinit() {
         // Mettre à jour les scores graphiquement
         textScoreJ1.setText("" + scoreJ1);
@@ -179,9 +178,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             choixJ2[i] = false;
         }
 
-        // Mettre à jour le nombre de manche
+        // Mettre à jour le nombre de manches
         nbManches++;
-        textNbManches.setText(getString(R.string.nb_manches) + nbManches);
+        textNbManches.setText(getString(R.string.nb_manches, nbManches));
 
 
         // Si le J1 gagne 5 rounds

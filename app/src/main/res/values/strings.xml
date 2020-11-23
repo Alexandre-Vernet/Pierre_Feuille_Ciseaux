@@ -9,7 +9,7 @@
     <string name="perdu_ciseaux">Lost ! \n The computer had chosen Scissors</string>
     <string name="perdu_pierre">Lost ! \n The computer had chosen Rock</string>
     <string name="gagne_feuille">Won ! \n The computer had chosen Paper</string>
-    <string name="nb_manches">Number of rounds : </string>
+    <string name="nb_manches">Number of rounds : %1$d</string>
     <string name="victoire">Victory</string>
     <string name="vous_avez_gagne">You have won ! Play again ?</string>
     <string name="oui">Yes</string>
